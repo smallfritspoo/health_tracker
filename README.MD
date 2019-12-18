@@ -1,0 +1,1 @@
+## Track Health Values ![](https://travis-ci.org/smallfritspoo/health_tracker.svg?branch=master)[![Coverage Status](https://coveralls.io/repos/github/smallfritspoo/health_tracker/badge.svg?branch=master)](https://coveralls.io/github/smallfritspoo/health_tracker?branch=master)
