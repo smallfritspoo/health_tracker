@@ -20,22 +20,48 @@ class HealthCheckerTestCase(unittest.TestCase):
         db.drop_all()
         self.app_context.pop()
 
-    def test_password_hashing(self):
+    def test_password_hashing(self) -> None:
         u = User(username='susan')
         u.set_password('cat')
         self.assertFalse(u.check_password('dog'))
         self.assertTrue(u.check_password('cat'))
+
+    def test_user_add(self) -> None:
+        u = User(username="test", email="test@test.com")
+        db.session.add(u)
+        db.session.commit()
+        test_user = User.query.first_or_404()
+        self.assertEqual(test_user.username, 'test')
+        self.assertEqual(test_user.email, 'test@test.com')
+        self.assertEqual(test_user.id, '1')
 
     def test_add_weight(self) -> None:
         """ Test A new weight can be added """
         u = User(username="test", email="test@test.com")
         db.session.add(u)
         db.session.commit()
-        w = Weight(weight=randint(100, 999), weight_patient=u)
+        random_weight = randint(100, 999)
+        w = Weight(weight=random_weight, weight_patient=u)
         db.session.add(w)
         db.session.commit()
-        self.assertEqual(User.query.first_or_404().username, 'test')
-        #res = self.client().post('/weight/add')
+        test_user = User.query.first_or_404()
+        for weight in test_user.weights:
+            self.assertEqual(weight, random_weight)
+
+    def test_add_blood_pressure(self) -> None:
+        u = User(username="test", email="test@test.com")
+        db.session.add(u)
+        db.session.commit()
+        rand_systolic = randint(0, 300)
+        rand_diastolic = randint(0, 300)
+        bp = BloodPressure(systolic=rand_systolic, diastolic=rand_diastolic, pressure_patient=u)
+        db.session.add(bp)
+        db.session.commit()
+        test_user = User.query.first_or_404()
+        for bp in test_user.pressures:
+            self.assertEqual(bp.systolic, rand_systolic)
+            self.assertEqual(bp.diastolic, rand_diastolic)
+
 
 
 if __name__ == "__main__":
