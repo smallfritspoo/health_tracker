@@ -11,3 +11,4 @@ jinja2
 WTForms
 Werkzeug
 python-coveralls
+nose
