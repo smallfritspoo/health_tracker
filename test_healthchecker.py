@@ -6,6 +6,7 @@ from app.models import User, Weight, BloodPressure
 from random import randint
 from werkzeug.exceptions import NotFound
 
+
 class HealthCheckerTestCase(unittest.TestCase):
     """ HealthChecker Test Case """
 
