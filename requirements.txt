@@ -10,3 +10,4 @@ flask-bootstrap
 jinja2
 WTForms
 Werkzeug
+python-coveralls
