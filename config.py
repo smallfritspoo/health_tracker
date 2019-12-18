@@ -20,7 +20,7 @@ class DevelopmentConfig(Config):
 class TestingConfig(Config):
     """Configurations for Testing, with a separate test database."""
     TESTING = True
-    SQLALCHEMY_DATABASE_URI = 'postgresql://harry:test@localhost/test_health_check'
+    SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:@localhost/test_health_check'
     DEBUG = True
 
 class StagingConfig(Config):
