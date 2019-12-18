@@ -33,7 +33,7 @@ class HealthCheckerTestCase(unittest.TestCase):
         test_user = User.query.first_or_404()
         self.assertEqual(test_user.username, 'test')
         self.assertEqual(test_user.email, 'test@test.com')
-        self.assertEqual(test_user.id, '1')
+        self.assertEqual(test_user.id, 1)
 
     def test_add_weight(self) -> None:
         """ Test A new weight can be added """
@@ -46,7 +46,7 @@ class HealthCheckerTestCase(unittest.TestCase):
         db.session.commit()
         test_user = User.query.first_or_404()
         for weight in test_user.weights:
-            self.assertEqual(weight, random_weight)
+            self.assertEqual(weight, f"<Weight {random_weight}>")
 
     def test_add_blood_pressure(self) -> None:
         u = User(username="test", email="test@test.com")
