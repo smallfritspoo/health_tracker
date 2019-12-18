@@ -3,7 +3,6 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime, timedelta
 from flask_login import UserMixin
 
-
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True, unique=True)
@@ -15,11 +14,15 @@ class User(UserMixin, db.Model):
     def __repr__(self):
         return f"<User {self.username}>"
 
-    def set_password(self, password):
+    def set_password(self, password: str) -> None:
         self.password_hash = generate_password_hash(password)
 
-    def check_password(self, password):
+    def check_password(self, password: str) -> bool:
         return check_password_hash(self.password_hash, password)
+
+    @staticmethod
+    def get_user_id(email: str) -> int:
+        return User.query.filter_by(email=email).first().id
 
 
 class BloodPressure(db.Model):
@@ -29,7 +32,7 @@ class BloodPressure(db.Model):
     diastolic = db.Column(db.Integer)
     bp_recorded_time = db.Column(db.DateTime, index=True, default=datetime.utcnow)
 
-    def __repr__(self):
+    def __repr__(self) -> repr:
         return f"<BloodPressure {self.systolic}/{self.diastolic}>"
 
 
@@ -39,7 +42,7 @@ class Weight(db.Model):
     weight = db.Column(db.Integer)
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
 
-    def __repr__(self):
+    def __repr__(self) -> repr:
         return f"<Weight {self.weight}>"
 
 

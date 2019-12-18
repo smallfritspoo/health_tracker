@@ -4,6 +4,7 @@ import json
 from app import create_app, db
 from app.models import User, Weight, BloodPressure
 from random import randint
+from werkzeug.exceptions import NotFound
 
 class HealthCheckerTestCase(unittest.TestCase):
     """ HealthChecker Test Case """
@@ -46,7 +47,7 @@ class HealthCheckerTestCase(unittest.TestCase):
         db.session.commit()
         test_user = User.query.first_or_404()
         for weight in test_user.weights:
-            self.assertEqual(weight, f"<Weight {random_weight}>")
+            self.assertEqual(str(weight), f"<Weight {random_weight}>")
 
     def test_add_blood_pressure(self) -> None:
         u = User(username="test", email="test@test.com")
@@ -61,6 +62,21 @@ class HealthCheckerTestCase(unittest.TestCase):
         for bp in test_user.pressures:
             self.assertEqual(bp.systolic, rand_systolic)
             self.assertEqual(bp.diastolic, rand_diastolic)
+
+    def test_user_removal(self) -> None:
+        # Add the user
+        u = User(username="testdelete", email="pleasedeleteme@deleteme.com")
+        db.session.add(u)
+        db.session.commit()
+        # Verify user exists
+        test_user = User.query.first_or_404()
+        if self.assertEqual(test_user.username, 'testdelete'):
+            db.session.delete(test_user)
+            db.session.commit()
+        with self.assertRaises(NotFound):
+            User.query.first_or_404()
+
+
 
 
 
