@@ -34,5 +34,9 @@ class HealthCheckerTestCase(unittest.TestCase):
         w = Weight(weight=randint(100, 999), weight_patient=u)
         db.session.add(w)
         db.session.commit()
-        User.query.first_or_404().username
-        res = self.client().post('/weight/add')
+        self.assertEqual(User.query.first_or_404().username, 'test')
+        #res = self.client().post('/weight/add')
+
+
+if __name__ == "__main__":
+    unittest.main()
