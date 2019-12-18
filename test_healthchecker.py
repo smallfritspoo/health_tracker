@@ -70,14 +70,13 @@ class HealthCheckerTestCase(unittest.TestCase):
         db.session.commit()
         # Verify user exists
         test_user = User.query.first_or_404()
-        if self.assertEqual(test_user.username, 'testdelete'):
-            db.session.delete(test_user)
-            db.session.commit()
+        self.assertEqual(test_user.username, 'testdelete')
+        self.assertEqual(test_user.email, 'pleasedeleteme@deleteme.com')
+        user = User.query.filter_by(username='testdelete').one()
+        db.session.delete(user)
+        db.session.commit()
         with self.assertRaises(NotFound):
-            User.query.first_or_404()
-
-
-
+            print(User.query.first_or_404())
 
 
 if __name__ == "__main__":
