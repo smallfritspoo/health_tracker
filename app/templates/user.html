@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+    <table class="table table-hover">
+        <tr>
+            <td>
+                <h1>{{ _('User') }}: {{ user.username }}</h1>
+            </td>
+        </tr>
+    </table>
+    {%  for weight in weights %}
+        {% include '_weights.html' %}
+    {%  endfor %}
+{% endblock %}

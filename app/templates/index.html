@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+    <h1>{{ "Weights for {}".format(current_user.username) }}</h1>
+    <hr>
+    {% for weight in weights %}
+        {% include '_weights.html' %}
+        <br>
+    {% endfor %}
+    <h1>{{ "Pressures for {}".format(current_user.username) }}</h1>
+    <hr>
+    {% for pressure in pressures %}
+        {% include '_pressures.html' %}
+        <br>
+    {% endfor %}
+    <nav aria-label="...">
+        <ul class="pager">
+        </ul>
+    </nav>
+{% endblock %}

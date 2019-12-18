@@ -1,0 +1,12 @@
+flask
+flask-sqlalchemy
+psycopg2
+flask-migrate
+python-dotenv
+flask-script
+flask-login
+flask-wtf
+flask-bootstrap
+jinja2
+WTForms
+Werkzeug
