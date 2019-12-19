@@ -52,7 +52,7 @@ class NutritionInformation(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     report_id = db.Column(db.Integer, unique=True)
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
-    meal_type = db.Column(db.)
+    meal_type = db.Column(db.String(10))
     calories = db.Column(db.Integer)
     calories_from_fat = db.Column(db.Integer)
     total_fat = db.Column(db.Integer)
