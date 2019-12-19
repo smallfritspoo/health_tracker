@@ -10,7 +10,13 @@ from app.main import bp
 def index():
     weights = current_user.weights
     pressures = current_user.pressures
-    return render_template('index.html', weights=weights, pressures=pressures)
+    cbcs = current_user.cbcs
+    panels = current_user.metabolic_panels
+    return render_template('index.html',
+                           weights=weights,
+                           pressures=pressures,
+                           cbcs=cbcs,
+                           panels=panels)
 
 
 @bp.route('/user/<username>')

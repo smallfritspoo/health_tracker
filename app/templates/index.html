@@ -14,6 +14,15 @@
         {% include '_pressures.html' %}
         <br>
     {% endfor %}
+    <h1>{{ 'CBC Values for {}'.format(current_user.username) }}</h1>
+    <hr>
+    {% for cbc in cbcs %}
+        {% include '_cbcs.html' %}
+    {% endfor %}
+    <h1>{{ 'Metabolic Panels for {}'.format(current_user.username }}</h1>
+    {% for panel in panels %}
+        {%  include '_metabolic.html' %}
+    {% endfor %}
     <nav aria-label="...">
         <ul class="pager">
         </ul>

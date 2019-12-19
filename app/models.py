@@ -12,6 +12,7 @@ class User(UserMixin, db.Model):
     weights = db.relationship('Weight', backref='weight_patient', lazy='dynamic')
     pressures = db.relationship('BloodPressure', backref='pressure_patient', lazy='dynamic')
     cbcs = db.relationship('CompleteBloodCount', backref='cbc_patient', lazy='dynamic')
+    metabolic_panels = db.relationship('MetabolicPanel', backref='metabolic_patient', lazy='dynamic')
 
     def __repr__(self):
         return f"<User {self.username}>"
@@ -50,7 +51,7 @@ class Weight(db.Model):
 
 class CompleteBloodCount(db.Model):
     white_blood_cell_count = db.Column(db.Integer)
-    hemoglobing = db.Column(db.Integer)
+    hemoglobin = db.Column(db.Integer)
     hematocrit = db.Column(db.Integer)
     platelet = db.Column(db.Integer)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
