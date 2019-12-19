@@ -54,7 +54,7 @@ class CompleteBloodCount(db.Model):
     hematocrit = db.Column(db.Integer)
     platelet = db.Column(db.Integer)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    report_id = db.Column(db.Integer, unique=True, primary_key=True)
+    report_id = db.Column(db.BigInteger, unique=True, primary_key=True)
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
 
     def __repr__(self) -> repr:
@@ -71,7 +71,7 @@ class MetabolicPanel(db.Model):
     creatinine = db.Column(db.Integer)
     glucose = db.Column(db.Integer)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    report_id = db.Column(db.Integer, unique=True, primary_key=True)
+    report_id = db.Column(db.BigInteger, unique=True, primary_key=True)
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
 
     def __repr__(self) -> repr:
@@ -82,7 +82,7 @@ class MetabolicPanel(db.Model):
 class NutritionInformation(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    report_id = db.Column(db.Integer, unique=True)
+    report_id = db.Column(db.BigInteger, unique=True)
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     meal_type = db.Column(db.String(10))
     calories = db.Column(db.Integer)
