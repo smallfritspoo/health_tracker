@@ -20,20 +20,20 @@
         {% include '_cbcs.html' %}
     {% endfor %}
     <h1>{{ 'Metabolic Panels for {}'.format(current_user.username) }}</h1>
-    <table class="table table-hover">
+    <table id="dtMetabolic" class="table table-striped table-bordered table-sm">
         <caption>Metabolic Panel Values</caption>
         <thead>
             <tr>
-                <th scope="col" width="70px">Report ID</th>
-                <th scope="col" width="70px">Date</th>
-                <th scope="col" width="70px">Sodium</th>
-                <th scope="col" width="70px">Calcium</th>
-                <th scope="col" width="70px">Chloride</th>
-                <th scope="col" width="70px">Potassium</th>
-                <th scope="col" width="70px">Magnesium</th>
-                <th scope="col" width="70px">BUN</th>
-                <th scope="col" width="70px">Creatinine</th>
-                <th scope="col" width="70px">Glucose</th>
+                <th scope="col" class="th-sm" width="70px">Report ID</th>
+                <th scope="col" class="th-sm" width="70px">Date</th>
+                <th scope="col" class="th-sm" width="70px">Sodium</th>
+                <th scope="col" class="th-sm" width="70px">Calcium</th>
+                <th scope="col" class="th-sm" width="70px">Chloride</th>
+                <th scope="col" class="th-sm" width="70px">Potassium</th>
+                <th scope="col" class="th-sm" width="70px">Magnesium</th>
+                <th scope="col" class="th-sm" width="70px">BUN</th>
+                <th scope="col" class="th-sm" width="70px">Creatinine</th>
+                <th scope="col" class="th-sm" width="70px">Glucose</th>
             </tr>
         </thead>
         <tbody>

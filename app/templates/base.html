@@ -1,5 +1,7 @@
 {% extends 'bootstrap/base.html' %}
 
+<script type="text/javascript" src="{{ url_for('static', filename='js/metabolic_table.js') }}"></script>
+
 {% block title %}
     {% if title %}{{ title }} - HealthTracker{% else %}{{ 'Welcome to HealthTracker' }}{% endif %}
 {% endblock %}
