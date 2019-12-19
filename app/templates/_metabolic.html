@@ -3,14 +3,14 @@
             <td width="70px">
             </td>
             <td>
-                <img src="images/sodium.png">: {{ panel.sodium }} <br>
-                <img src="images/ca.png">: {{ panel.calcium }}<br>
-                <img src="images/chloride.png">: {{ panel.chloride }}<br>
-                <img src="images/potassium.png">: {{ panel.potassium }}<br>
-                <img src="images/magnesium.png">: {{ panel.magnesium }}<br>
-                <img src="images/urea.png">: {{ panel.blood_urea_nitrogen }}<br>
-                <img src="images/creatine.png">: {{ panel.creatinine }}<br>
-                <img src="images/glucose.png">: {{ panel.glucose }}<br>
+                <img src="{{ url_for('static', filename='sodium.png')}}">: {{ panel.sodium }} <br>
+                <img src="{{ url_for('static', filename='ca.png') }}">: {{ panel.calcium }}<br>
+                <img src="{{ url_for('static', filename='chloride.png') }}">: {{ panel.chloride }}<br>
+                <img src="{{ url_for('static', filename='potassium.png') }}">: {{ panel.potassium }}<br>
+                <img src="{{ url_for('static', filename='magnesium.png') }}">: {{ panel.magnesium }}<br>
+                <img src="{{ url_for('static', filename='urea.png') }}">: {{ panel.blood_urea_nitrogen }}<br>
+                <img src="{{ url_for('static', filename='creatinine.png') }}">: {{ panel.creatinine }}<br>
+                <img src="{{ url_for('static', filename='glucose.png') }}">: {{ panel.glucose }}<br>
                 <b>Date</b>: {{ panel.timestamp }}
             </td>
         </tr>
