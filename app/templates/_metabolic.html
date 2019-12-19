@@ -1,17 +1,80 @@
     <table class="table table-hover">
+        <caption>Metabolic Panel Values</caption>
+        <thead>
+            <tr>
+                <th scope="col" width="70px">Sodium</th>
+                <th scope="col" width="70px">Calcium</th>
+                <th scope="col" width="70px">Chloride</th>
+                <th scope="col" width="70px">Potassium</th>
+                <th scope="col" width="70px">Magnesium</th>
+                <th scope="col" width="70px">BUN</th>
+                <th scope="col" width="70px">Creatinine</th>
+                <th scope="col" width="70px">Glucose</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><img src="{{ url_for('static', filename='sodium.png')}}" style="width:60px;height:60px"></td>
+                <td><img src="{{ url_for('static', filename='ca.png')}}" style="width:60px;height:60px"></td>
+                <td><img src="{{ url_for('static', filename='chloride.png')}}" style="width:60px;height:60px"></td>
+                <td><img src="{{ url_for('static', filename='potassium.png')}}" style="width:60px;height:60px"></td>
+                <td><img src="{{ url_for('static', filename='magnesium.png')}}" style="width:60px;height:60px"></td>
+                <td><img src="{{ url_for('static', filename='urea.png')}}" style="width:60px;height:60px"></td>
+                <td><img src="{{ url_for('static', filename='creatinine.png')}}" style="width:60px;height:60px"></td>
+                <td><img src="{{ url_for('static', filename='glucose.png')}}" style="width:60px;height:60px"></td>
+            </tr>
+            <tr>
+                <td>{{ panel.sodium }}</td>
+                <td>{{ panel.calcium }}</td>
+                <td>{{ panel.chloride }}</td>
+                <td>{{ panel.potassium }}</td>
+                <td>{{ panel.magnesium }}</td>
+                <td>{{ panel.blood_urea_nitrogen }}</td>
+                <td>{{ panel.creatinine }}</td>
+                <td>{{ panel.glucose }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <table>
+        <caption>Metabolic Panel Values</caption>
+        <thead>
         <tr>
-            <td width="70px">
-            </td>
-            <td>
-                <img src="{{ url_for('static', filename='sodium.png')}}" style="width:60px;height:60px">: {{ panel.sodium }} <br>
-                <img src="{{ url_for('static', filename='ca.png') }}" style="width:60px;height:60px">: {{ panel.calcium }}<br>
-                <img src="{{ url_for('static', filename='chloride.png') }}" style="width:60px;height:60px">: {{ panel.chloride }}<br>
-                <img src="{{ url_for('static', filename='potassium.png') }}" style="width:60px;height:60px">: {{ panel.potassium }}<br>
-                <img src="{{ url_for('static', filename='magnesium.png') }}" style="width:60px;height:60px">: {{ panel.magnesium }}<br>
-                <img src="{{ url_for('static', filename='urea.png') }}" style="width:60px;height:60px">: {{ panel.blood_urea_nitrogen }}<br>
-                <img src="{{ url_for('static', filename='creatinine.png') }}" style="width:60px;height:60px">: {{ panel.creatinine }}<br>
-                <img src="{{ url_for('static', filename='glucose.png') }}" style="width:60px;height:120px">: {{ panel.glucose }}<br>
-                <b>Date</b>: {{ panel.timestamp }}
-            </td>
+            <th scope="col" width="70px">Elements</th>
+            <th scope="col" width="70px">Values</th>
         </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row" width="100px"><img src="{{ url_for('static', filename='sodium.png')}}" style="width:60px;height:60px"></th>
+            <td>{{ panel.sodium }}</td>
+        </tr>
+        <tr>
+            <th scope="row" width="100px"><img src="{{ url_for('static', filename='ca.png')}}" style="width:60px;height:60px"></th></th>
+            <td>{{ panel.calcium }}</td>
+        </tr>
+                <tr>
+            <th scope="row" width="100px"><img src="{{ url_for('static', filename='chloride.png')}}" style="width:60px;height:60px"></th></th>
+            <td>{{ panel.chloride }}</td>
+        </tr>
+                <tr>
+            <th scope="row" width="100px"><img src="{{ url_for('static', filename='potassium.png')}}" style="width:60px;height:60px"></th></th>
+            <td>{{ panel.potassium }}</td>
+        </tr>
+                <tr>
+            <th scope="row" width="100px"><img src="{{ url_for('static', filename='magnesium.png')}}" style="width:60px;height:60px"></th></th>
+            <td>{{ panel.magnesium }}</td>
+        </tr>
+                <tr>
+            <th scope="row" width="100px"><img src="{{ url_for('static', filename='urea.png')}}" style="width:60px;height:60px"></th></th>
+            <td>{{ panel.blood_urea_nitrogen }}</td>
+        </tr>
+                <tr>
+            <th scope="row" width="100px"><img src="{{ url_for('static', filename='creatinine.png')}}" style="width:60px;height:60px"></th></th>
+            <td>{{ panel.creatinine }}</td>
+        </tr>
+                <tr>
+            <th scope="row" width="100px"><img src="{{ url_for('static', filename='glucose.png')}}" style="width:60px;height:60px"></th></th>
+            <td>{{ panel.glucose }}</td>
+        </tr>
+        </tbody>
     </table>
