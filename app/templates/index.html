@@ -19,7 +19,7 @@
     {% for cbc in cbcs %}
         {% include '_cbcs.html' %}
     {% endfor %}
-    <h1>{{ 'Metabolic Panels for {}'.format(current_user.username }}</h1>
+    <h1>{{ 'Metabolic Panels for {}'.format(current_user.username) }}</h1>
     {% for panel in panels %}
         {%  include '_metabolic.html' %}
     {% endfor %}
