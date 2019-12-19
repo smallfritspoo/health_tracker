@@ -54,4 +54,4 @@ def add_cbc_lab():
 
 def generate_report_id():
     random.seed(datetime.now())
-    return random.randint(0000000000, 9999999999)
+    return random.randint(000000, 999999)
