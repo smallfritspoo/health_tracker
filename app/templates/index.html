@@ -20,9 +20,36 @@
         {% include '_cbcs.html' %}
     {% endfor %}
     <h1>{{ 'Metabolic Panels for {}'.format(current_user.username) }}</h1>
+    <table class="table table-hover">
+        <caption>Metabolic Panel Values</caption>
+        <thead>
+            <tr>
+                <th scope="col" width="70px">Sodium</th>
+                <th scope="col" width="70px">Calcium</th>
+                <th scope="col" width="70px">Chloride</th>
+                <th scope="col" width="70px">Potassium</th>
+                <th scope="col" width="70px">Magnesium</th>
+                <th scope="col" width="70px">BUN</th>
+                <th scope="col" width="70px">Creatinine</th>
+                <th scope="col" width="70px">Glucose</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><img src="{{ url_for('static', filename='sodium.png')}}" style="width:60px;height:60px"></td>
+                <td><img src="{{ url_for('static', filename='ca.png')}}" style="width:60px;height:60px"></td>
+                <td><img src="{{ url_for('static', filename='chloride.png')}}" style="width:60px;height:60px"></td>
+                <td><img src="{{ url_for('static', filename='potassium.png')}}" style="width:60px;height:60px"></td>
+                <td><img src="{{ url_for('static', filename='magnesium.png')}}" style="width:60px;height:60px"></td>
+                <td><img src="{{ url_for('static', filename='urea.png')}}" style="width:60px;height:60px"></td>
+                <td><img src="{{ url_for('static', filename='creatinine.png')}}" style="width:60px;height:60px"></td>
+                <td><img src="{{ url_for('static', filename='glucose.png')}}" style="width:60px;height:60px"></td>
+            </tr>
     {% for panel in panels %}
         {%  include '_metabolic.html' %}
     {% endfor %}
+        </tbody>
+    </table>
     <nav aria-label="...">
         <ul class="pager">
         </ul>
