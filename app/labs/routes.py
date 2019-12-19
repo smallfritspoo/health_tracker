@@ -25,6 +25,7 @@ def add_metabolic_lab():
             glucose=form.glucose.data,
             report_id=generate_report_id(),
             timestamp=form.timestamp.data,
+            metabolic_patient=current_user
         )
         db.session.add(m)
         db.session.commit()
