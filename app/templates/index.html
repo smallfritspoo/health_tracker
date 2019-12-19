@@ -20,12 +20,12 @@
         {% include '_cbcs.html' %}
     {% endfor %}
     <h1>{{ 'Metabolic Panels for {}'.format(current_user.username) }}</h1>
-    <table id="dtMetabolic" class="table table-striped table-bordered table-sm">
+    <table data-toggle="table" data-sort-name="date" data-sort-order="desc">
         <caption>Metabolic Panel Values</caption>
         <thead>
             <tr>
                 <th scope="col" class="th-sm" width="70px">Report ID</th>
-                <th scope="col" class="th-sm" width="70px">Date</th>
+                <th scope="col" class="th-sm" width="70px" data-field="date" data-sortable="true">Date</th>
                 <th scope="col" class="th-sm" width="70px">Sodium</th>
                 <th scope="col" class="th-sm" width="70px">Calcium</th>
                 <th scope="col" class="th-sm" width="70px">Chloride</th>
