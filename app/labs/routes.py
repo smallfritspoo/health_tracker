@@ -39,7 +39,7 @@ def add_cbc_lab():
     form = AddCompleteBloodCellCount()
     if form.validate_on_submit():
         cbc = CompleteBloodCount(white_blood_cell_count=form.white_blood_cell_count.data,
-                                 hemoglobing=form.hemoglobin.data,
+                                 hemoglobin=form.hemoglobin.data,
                                  hematocrit=form.hematocrit.data,
                                  platelet=form.platelet.data,
                                  timestamp=form.timestamp.data,
