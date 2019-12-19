@@ -11,6 +11,7 @@ class User(UserMixin, db.Model):
     password_hash = db.Column(db.String(128))
     weights = db.relationship('Weight', backref='weight_patient', lazy='dynamic')
     pressures = db.relationship('BloodPressure', backref='pressure_patient', lazy='dynamic')
+    cbcs = db.relationship('CompleteBloodCount', backref='cbc_patient', lazy='dynamic')
 
     def __repr__(self):
         return f"<User {self.username}>"
@@ -45,6 +46,37 @@ class Weight(db.Model):
 
     def __repr__(self) -> repr:
         return f"<Weight {self.weight}>"
+
+
+class CompleteBloodCount(db.Model):
+    white_blood_cell_count = db.Column(db.Integer)
+    hemoglobing = db.Column(db.Integer)
+    hematocrit = db.Column(db.Integer)
+    platelet = db.Column(db.Integer)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    report_id = db.Column(db.Integer, unique=True, primary_key=True)
+    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+
+    def __repr__(self) -> repr:
+        return f"<WBC {self.white_blood_cell_count}>, Hb {self.hemoglobing}, HCT {self.hematocrit}, PLT {self.platelet}"
+
+
+class MetabolicPanel(db.Model):
+    sodium = db.Column(db.Integer)
+    calcium = db.Column(db.Integer)
+    chloride = db.Column(db.Integer)
+    potassium = db.Column(db.Integer)
+    magnesium = db.Column(db.Integer)
+    blood_urea_nitrogen = db.Column(db.Integer)
+    creatinine = db.Column(db.Integer)
+    glucose = db.Column(db.Integer)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    report_id = db.Column(db.Integer, unique=True, primary_key=True)
+    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+
+    def __repr__(self) -> repr:
+        return f"<Na {self.sodium}, Cl {self.chloride}, Ca {self.calcium}, K {self.potasium}, Mg {self.magnesium}," \
+               f"BUN {self.blood_urea_nitrogen}, Cr {self.creatinine}, glucose {self.glucose}>"
 
 
 class NutritionInformation(db.Model):
