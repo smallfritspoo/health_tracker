@@ -30,6 +30,9 @@ def create_app(config_name):
     from app.auth import bp as auth_bp
     app.register_blueprint(auth_bp, url_prefix='/auth')
 
+    from app.labs import bp as labs_bp
+    app.register_blueprint(labs_bp, url_prefix='/labs')
+
     from app.bloodpressure import bp as bloodpressure_bp
     app.register_blueprint(bloodpressure_bp, url_prefix='/bloodpressure')
 
