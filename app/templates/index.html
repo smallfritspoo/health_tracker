@@ -5,7 +5,7 @@
     <h1>{{ "Weights and Pressures" }}</h1>
     <div class="shell">
     <!-- Add divs -->
-    <table data-toggle="table" data-sort-name="date" data-sort-order="desc" class="table table-striped table-bordered table-sm">
+    <table class="table table-striped table-bordered table-sm">
     <caption>Recorded Weights</caption>
     <thead>
     <tr>
@@ -28,7 +28,7 @@
     </table>
     </div>
     <div class="shell">
-    <table data-toggle="table" data-sort-name="date" data-sort-order="desc" class="table table-striped table-bordered table-sm">
+    <table class="table table-striped table-bordered table-sm">
     <caption>Blood Pressures</caption>
     <thead>
     <tr>
@@ -52,6 +52,7 @@
     </tfoot>
     </table>
     </div>
+    <h1>Labs</h1>
     <table data-toggle="table" data-sort-name="date" data-sort-order="desc" class="table table-striped table-bordered table-sm">
     <caption>CBC panel values</caption>
     <thead>
@@ -80,7 +81,6 @@
     </tr>
     </tfoot>
     </table>
-    <h1>{{ 'Metabolic Panels for {}'.format(current_user.username) }}</h1>
     <table data-toggle="table" data-sort-name="date" data-sort-order="desc" class="table table-striped table-bordered table-sm">
         <caption>Metabolic Panel Values</caption>
         <thead>
